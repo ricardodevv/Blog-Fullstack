@@ -57,14 +57,16 @@ listRouter.delete('/:id', async (request, response) => {
   const blog = await Blog.findById(request.params.id)
   const token = getTokenFrom(request)
 
+  console.log('blog', blog)
+
   const decodedToken = jwt.verify(token, process.env.SECRET)
-  if (blog.user.toString() === decodedToken.id.toString()) {  
-    await Blog.findByIdAndRemove(request.params.id)
-    response.status(204).end()
-  } else {
-    response.send({
-      error: 'error'
-    })
+  if (blog.user.toString() === decodedToken.id) {  
+    try {
+      await Blog.findByIdAndRemove(request.params.id)
+      response.status(204).end()
+    } catch (e) {
+      response.status(401).json({ error: 'invalid token' })
+    }
   }
 })
 
