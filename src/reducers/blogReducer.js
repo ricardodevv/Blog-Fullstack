@@ -17,5 +17,31 @@ const blogReducer = (state = [], action) => {
         return state
     }
   }
-  
+
+const generateId = () => Number((Math.random() * 1000000).toFixed(0))
+
+export const likeButton = (id) => {
+  console.log(id)
+  return {
+    type: 'LIKE',
+    data: {
+      likes: 1,
+      id: id
+    }
+  }
+}
+
+export const createBlog = (title) => {
+  return {
+    type: 'NEW_BLOG',
+    data: {
+      title,
+      author: 'RQ',
+      content: 'about the app in redux store',
+      likes: 0,
+      id: generateId()
+    }
+  }
+}
+
 export default blogReducer
