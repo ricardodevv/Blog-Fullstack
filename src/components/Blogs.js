@@ -1,13 +1,26 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { likeButton } from '../reducers/blogReducer'
+import { eraseState, likeMessage } from '../reducers/notificationReducer'
 
 const Blogs = () => {
   const dispatch = useDispatch()
-  const blogs = useSelector(state => state)
+  const blogs = useSelector(state => {
+    //Add ascending and descending ordered array 
+    if ( state.filter === 'ASCENDING' ) {
+      return state.blogs.slice().sort((a, b) => b.likes - a.likes)
+    } else if ( state.filter === 'DESCENDING' ) {
+      return state.blogs.slice().sort((a, b) => a.likes - b.likes)
+    }
+    return state.blogs
+  })
 
-  const clickLikeButton = (id) => {
+  const clickLikeButton = (id, title) => {
       dispatch(likeButton(id))
+      dispatch(likeMessage(title))
+      setTimeout(() => {
+        dispatch(eraseState())
+      }, 5000)
     }
 
   return (
@@ -15,7 +28,7 @@ const Blogs = () => {
       {blogs.map(blog => 
         <li 
           key={blog.id}
-          onClick={() => clickLikeButton(blog.id)} 
+          onClick={() => clickLikeButton(blog.id, blog.title)} 
         >
           {blog.title}
           {blog.likes}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { createBlog } from '../reducers/blogReducer' 
 import { useDispatch } from 'react-redux'
+import { eraseState, newBlogMessage } from '../reducers/notificationReducer'
 
 const NewBlog = () => {
   const dispatch = useDispatch()
@@ -10,6 +11,10 @@ const NewBlog = () => {
     const title = event.target.blog.value
     event.target.blog.value = ''
     dispatch(createBlog(title))
+    dispatch(newBlogMessage(title))
+    setTimeout(() => {
+      dispatch(eraseState())
+    }, 5000)
   }
 
   return (

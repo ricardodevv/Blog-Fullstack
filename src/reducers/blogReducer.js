@@ -1,4 +1,23 @@
-const blogReducer = (state = [], action) => {
+const initialState = [
+  {
+    title: 'some stuff',
+    author: 'RQ',
+    content: 'lololol',
+    likes: 0,
+    id: 1,
+    important: true
+  },
+  {
+    title: 'other stuff',
+    author: 'RQ',
+    content: 'skkkrrrrr',
+    likes: 10,
+    id: 2,
+    important: false
+  },
+]
+
+const blogReducer = (state = initialState, action) => {
     switch(action.type) {
       case 'NEW_BLOG':
         return state.concat(action.data)
@@ -21,7 +40,6 @@ const blogReducer = (state = [], action) => {
 const generateId = () => Number((Math.random() * 1000000).toFixed(0))
 
 export const likeButton = (id) => {
-  console.log(id)
   return {
     type: 'LIKE',
     data: {
