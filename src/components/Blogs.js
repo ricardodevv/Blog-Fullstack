@@ -16,22 +16,24 @@ const Blogs = () => {
   })
 
   const clickLikeButton = (id, title) => {
-      dispatch(likeButton(id))
-      dispatch(likeMessage(title))
-      setTimeout(() => {
-        dispatch(eraseState())
-      }, 5000)
-    }
+    dispatch(likeButton(id))
+    dispatch(likeMessage(title))
+    setTimeout(() => {
+      dispatch(eraseState())
+    }, 5000)
+  }
+
+ //console.log(blogs)
 
   return (
     <ul>
-      {blogs.map(blog => 
+      {blogs.map(blog =>
         <li 
           key={blog.id}
-          onClick={() => clickLikeButton(blog.id, blog.title)} 
+          onClick={() => clickLikeButton(blog.id, blog.content.title)} 
         >
-          {blog.title}
-          {blog.likes}
+          {blog.content.title}
+          {blog.content.likes}
         </li>
       )}
     </ul>

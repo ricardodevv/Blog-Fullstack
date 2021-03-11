@@ -7,10 +7,11 @@ import './index.css'
 import App from './App'
 import Notification from './components/Notification'
 
-import blogReducer from './reducers/blogReducer'
+import blogReducer, { initializeBlogs } from './reducers/blogReducer'
 import filterReducer from './reducers/filterReducer'
 import notificationReducer from './reducers/notificationReducer'
 
+import blogService from './services/blogs'
 
 const reducer = combineReducers({
   blogs: blogReducer,
@@ -21,7 +22,7 @@ const reducer = combineReducers({
 const store = createStore(
   reducer,
   composeWithDevTools()
-  )
+)
 
 console.log(store.getState())
 
