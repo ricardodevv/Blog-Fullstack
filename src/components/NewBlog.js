@@ -16,10 +16,7 @@ const NewBlog = () => {
       likes: 0,
     }
     event.target.blog.value = ''
-    //dispatch(createBlog(title))
-    const newBlog = await blogService.createNew(content)
-    console.log(newBlog, 'newBlog')
-    dispatch(createBlog(newBlog))
+    dispatch(createBlog(content))
     setTimeout(() => {
       dispatch(eraseState())
     }, 5000)

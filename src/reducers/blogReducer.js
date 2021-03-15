@@ -1,3 +1,5 @@
+import blogService from '../services/blogs'
+
 const blogReducer = (state = [], action) => {
     switch(action.type) {
       case 'NEW_BLOG':
@@ -27,37 +29,33 @@ const blogReducer = (state = [], action) => {
 
 //const generateId = () => Number((Math.random() * 1000000).toFixed(0))
 
-export const likeButton = (id) => {
-  return {
-    type: 'LIKE',
-    data: {
-      content: {
-        likes: 1,
-      }, 
-      id: id
-    }
+export const likeButton = (liked, id) => {
+  return async dispatch => {
+    const like = await blogService.updateBlog(liked, id)
+    dispatch({
+      type: 'LIKE',
+      data: like
+    })
+  } 
+}
+
+export const createBlog = (content) => {
+  return async dispatch => {
+    const blogToAdd = await blogService.createNew(content)
+    dispatch({
+      type: 'NEW_BLOG',
+      data: blogToAdd
+    })
   }
 }
 
-export const createBlog = (newBlog) => {
-  return {
-    type: 'NEW_BLOG',
-    data: {
-      content: {
-        title: newBlog.content.title,
-        author: newBlog.content.author,
-        content: newBlog.content.content,
-        likes: newBlog.content.likes,
-      },
-      id: newBlog.id
-    }
-  }
-}
-
-export const initializeBlogs = (blogs) => {
-  return {
-    type: 'INIT_BLOGS',
-    data: blogs
+export const initializeBlogs = () => {
+  return async dispatch => {
+    const blogs = await blogService.getAll()
+    dispatch({
+      type: 'INIT_BLOGS',
+      data: blogs
+    })
   }
 }
 

@@ -5,16 +5,7 @@
         "title": "asdasd",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 0
-      },
-      "id": 1
-    },
-    {
-      "content": {
-        "title": "asdasd",
-        "author": "RQ",
-        "content": "about the app in redux store",
-        "likes": 0
+        "likes": 5
       },
       "id": 2
     },
@@ -50,7 +41,7 @@
         "title": "asd",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 0
+        "likes": 1
       },
       "id": 6
     },
@@ -98,6 +89,15 @@
         "likes": 0
       },
       "id": 11
+    },
+    {
+      "content": {
+        "title": "asdasd",
+        "author": "RQ",
+        "content": "about the app in redux store",
+        "likes": 0
+      },
+      "id": 12
     }
   ]
 }

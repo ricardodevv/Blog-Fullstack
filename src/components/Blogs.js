@@ -8,22 +8,30 @@ const Blogs = () => {
   const blogs = useSelector(state => {
     //Add ascending and descending ordered array 
     if ( state.filter === 'ASCENDING' ) {
-      return state.blogs.slice().sort((a, b) => b.likes - a.likes)
+      return state.blogs.slice().sort((a, b) => b.content.likes - a.content.likes)
     } else if ( state.filter === 'DESCENDING' ) {
-      return state.blogs.slice().sort((a, b) => a.likes - b.likes)
+      return state.blogs.slice().sort((a, b) => a.content.likes - b.content.likes)
     }
     return state.blogs
   })
+  console.log(blogs)
 
   const clickLikeButton = (id, title) => {
-    dispatch(likeButton(id))
+    const blog = blogs.find(blog => blog.id === id)
+    console.log(blog)
+    const likedButton = {
+      content: {
+        ...blog.content,
+        likes: blog.content.likes + 1,
+      }, 
+      id: id
+    }
+    dispatch(likeButton(likedButton, id))
     dispatch(likeMessage(title))
     setTimeout(() => {
       dispatch(eraseState())
     }, 5000)
   }
-
- //console.log(blogs)
 
   return (
     <ul>
