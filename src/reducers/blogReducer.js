@@ -7,7 +7,6 @@ const blogReducer = (state = [], action) => {
       case 'LIKE': {
         const id = action.data.id
         const blogToChange = state.find(blog => blog.id === id)
-        console.log(blogToChange)
         const changedBlog = { 
           content: 
             {...blogToChange.content,
@@ -15,7 +14,6 @@ const blogReducer = (state = [], action) => {
           },
           id: id
         }
-        console.log(changedBlog)
         return state.map(blog => 
           blog.id !== id ? blog : changedBlog 
         )
