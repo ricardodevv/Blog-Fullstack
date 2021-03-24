@@ -1,20 +1,11 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { likeButton } from '../reducers/blogReducer'
 import { eraseState, likeMessage } from '../reducers/notificationReducer'
+import { Link } from 'react-router-dom'
 
-const Blogs = () => {
+const Blogs = ({ blogs }) => {
   const dispatch = useDispatch()
-  const blogs = useSelector(state => {
-    //Add ascending and descending ordered array 
-    if ( state.filter === 'ASCENDING' ) {
-      return state.blogs.slice().sort((a, b) => b.content.likes - a.content.likes)
-    } else if ( state.filter === 'DESCENDING' ) {
-      return state.blogs.slice().sort((a, b) => a.content.likes - b.content.likes)
-    }
-    return state.blogs
-  })
-  console.log(blogs)
 
   const clickLikeButton = (id, title) => {
     const blog = blogs.find(blog => blog.id === id)
@@ -40,13 +31,15 @@ const Blogs = () => {
           key={blog.id}
           onClick={() => clickLikeButton(blog.id, blog.content.title)} 
         >
-          {blog.content.title}
+          <Link to={`/blogs/${blog.id}`}>{blog.content.title}</Link>
           {blog.content.likes}
         </li>
       )}
     </ul>
   )
 } 
+
+
 
 export default Blogs
 

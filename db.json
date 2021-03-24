@@ -5,7 +5,7 @@
         "title": "asdasd",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 144
+        "likes": 152
       },
       "id": 2
     },
@@ -14,7 +14,7 @@
         "title": "asda",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 91
+        "likes": 97
       },
       "id": 3
     },
@@ -23,7 +23,7 @@
         "title": "asdsad",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 37
+        "likes": 40
       },
       "id": 4
     },
@@ -32,7 +32,7 @@
         "title": "sad",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 29
+        "likes": 32
       },
       "id": 5
     },
@@ -41,7 +41,7 @@
         "title": "asd",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 9
+        "likes": 10
       },
       "id": 6
     },
@@ -59,7 +59,7 @@
         "title": "lol",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 4
+        "likes": 5
       },
       "id": 8
     },
@@ -68,7 +68,7 @@
         "title": "asdas",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 3
+        "likes": 6
       },
       "id": 9
     },
@@ -77,7 +77,7 @@
         "title": "adsa",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 0
+        "likes": 1
       },
       "id": 10
     },
@@ -95,7 +95,7 @@
         "title": "asdasd",
         "author": "RQ",
         "content": "about the app in redux store",
-        "likes": 0
+        "likes": 1
       },
       "id": 12
     }
