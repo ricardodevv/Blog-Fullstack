@@ -25,7 +25,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:react-hooks/recommended"
     ]
   },
   "browserslist": {
@@ -42,6 +43,8 @@
   },
   "devDependencies": {
     "deep-freeze": "0.0.1",
+    "eslint": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "json-server": "^0.16.3",
     "redux-devtools-extension": "^2.13.9"
   }

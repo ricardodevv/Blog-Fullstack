@@ -5,6 +5,7 @@ import Blogs from './components/Blogs'
 import Blog from './components/Blog'
 import Login from './components/Login'
 import Users from './components/User'
+import Home from './components/Home'
 import VisibilityFilter from './components/VisibilityFilter'
 import { useDispatch, useSelector } from 'react-redux'
 import { initializeBlogs } from './reducers/blogReducer'
@@ -34,12 +35,6 @@ const App = () => {
 
   const padding = {
     padding: 5
-  }
-
-  const Home = () => {
-    return (
-      <h1>Blogs site with react and redux</h1>
-    )
   }
 
   const match = useRouteMatch('/blogs/:id')
