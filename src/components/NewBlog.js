@@ -1,8 +1,7 @@
 import React from 'react'
 import { createBlog } from '../reducers/blogReducer' 
 import { useDispatch } from 'react-redux'
-import { eraseState, newBlogMessage } from '../reducers/notificationReducer'
-import blogService from '../services/blogs'
+import { eraseState } from '../reducers/notificationReducer'
 
 const NewBlog = () => {
   const dispatch = useDispatch()

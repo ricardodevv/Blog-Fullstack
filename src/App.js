@@ -6,6 +6,7 @@ import Blog from './components/Blog'
 import Login from './components/Login'
 import Users from './components/User'
 import Home from './components/Home'
+import Person from './components/Person'
 import VisibilityFilter from './components/VisibilityFilter'
 import { useDispatch, useSelector } from 'react-redux'
 import { initializeBlogs } from './reducers/blogReducer'
@@ -50,9 +51,10 @@ const App = () => {
         <Link style={padding} to="/blogs">Blogs</Link>
         <Link style={padding} to="/users">Users</Link>
         {user 
-        ? <em>{user} logged in</em>
-        : <Link style={padding} to="/login">login</Link>
+          ? <em>{user} logged in</em>
+          : <Link style={padding} to="/login">login</Link>
         }
+        <Link style={padding} to="/person">Person</Link>
       </div>
   
       <Switch>
@@ -74,6 +76,9 @@ const App = () => {
         </Route>
         <Route path="/login">
           <Login onLogin={login}/>
+        </Route>
+        <Route path="/person" >
+          <Person />
         </Route>
         <Route path="/">
           <Home />

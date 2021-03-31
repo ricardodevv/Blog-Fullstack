@@ -1,8 +1,10 @@
+/*eslint-disable react/prop-types */
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { likeButton } from '../reducers/blogReducer'
 import { eraseState, likeMessage } from '../reducers/notificationReducer'
 import { Link } from 'react-router-dom'
+import { Table } from 'react-bootstrap'
 
 const Blogs = ({ blogs }) => {
   const dispatch = useDispatch()
@@ -25,17 +27,28 @@ const Blogs = ({ blogs }) => {
   }
 
   return (
-    <ul>
-      {blogs.map(blog =>
-        <li 
-          key={blog.id}
-          onClick={() => clickLikeButton(blog.id, blog.content.title)} 
-        >
-          <Link to={`/blogs/${blog.id}`}>{blog.content.title}</Link>
-          {blog.content.likes}
-        </li>
-      )}
-    </ul>
+    <div>
+      <h2>Blogs</h2>
+      <Table striped>
+        <tbody>
+          {blogs.map(blog =>
+            <tr 
+              key={blog.id}
+              onClick={() => clickLikeButton(blog.id, blog.content.title)}
+            >
+              <td>
+                <Link to={`/blogs/${blog.id}`}>
+                  {blog.content.title}
+                </Link>
+              </td>
+              <td>
+                {blog.content.likes}
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </Table>
+    </div>
   )
 } 
 
