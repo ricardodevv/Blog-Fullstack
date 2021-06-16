@@ -34,7 +34,6 @@ const Blogs = ({ blogs }) => {
           {blogs.map(blog =>
             <tr 
               key={blog.id}
-              onClick={() => clickLikeButton(blog.id, blog.content.title)}
             >
               <td>
                 <Link to={`/blogs/${blog.id}`}>
@@ -43,6 +42,7 @@ const Blogs = ({ blogs }) => {
               </td>
               <td>
                 {blog.content.likes}
+                <button onClick={() => clickLikeButton(blog.id, blog.content.title)}>Like</button>
               </td>
             </tr>
           )}

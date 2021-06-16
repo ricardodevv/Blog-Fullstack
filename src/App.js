@@ -54,7 +54,6 @@ const App = () => {
           ? <em>{user} logged in</em>
           : <Link style={padding} to="/login">login</Link>
         }
-        <Link style={padding} to="/person">Person</Link>
       </div>
   
       <Switch>
@@ -70,7 +69,7 @@ const App = () => {
         </Route>
         <Route path="/users">
           {user 
-            ? <Users /> 
+            ? <Users user={user}/> 
             : <Redirect to="/login" />
           }
         </Route>

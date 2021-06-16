@@ -1,17 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
 const Login = (props) => {
+  const [user, setUser] = useState('')
   const history = useHistory()
   
+  const handleUsername = (e) => {
+    e.preventDefault()
+    setUser(e.target.value)
+  }
+
   const onSubmit = (event) => {
     event.preventDefault()
-    //eslint-disable-next-line react/prop-types
-    props.onLogin('Randres')
+    props.onLogin(user)
     history.push('/')
   }
-  
+
   return (
     <div>
       <h2>login</h2>
@@ -23,6 +29,7 @@ const Login = (props) => {
           <Form.Control 
             type="text"
             name="username" 
+            onChange={(e) => handleUsername(e)}
           />
           <Form.Label>password</Form.Label>
           <Form.Control
@@ -35,6 +42,10 @@ const Login = (props) => {
       </Form>
     </div>
   )
+}
+
+Login.propTypes = {
+  onLogin: PropTypes.string 
 }
 
 export default Login
