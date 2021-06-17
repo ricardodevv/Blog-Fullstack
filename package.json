@@ -4,16 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "cross-env NODE_ENV=production node index.js",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "build:ui": "rm -rf build && cd ../frontend/blog-frontend/ && npm run build --prod && cp -r build ../../backend",
     "start:test": "cross-env NODE_ENV=test node index.js"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
->>>>>>> e617452989c598fbd6efd323aa23ed6c87b56180
   },
   "repository": {
     "type": "git",
@@ -26,7 +21,6 @@
   },
   "homepage": "https://github.com/Rick-a-bit/blog-fullstack#readme",
   "dependencies": {
-<<<<<<< HEAD
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -47,13 +41,5 @@
   },
   "jest": {
     "testEnvironment": "node"
-=======
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.2",
-    "mongoose": "^5.10.7",
-    "nodemon": "^2.0.4"
->>>>>>> e617452989c598fbd6efd323aa23ed6c87b56180
   }
 }
